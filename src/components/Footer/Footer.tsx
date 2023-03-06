@@ -14,7 +14,7 @@ export default function Footer(){
             <Link href={'/config'} style={{textDecoration: 'none', color: 'grey'}}>
                 <Cog8ToothIcon className={styles.iconButton} />
             </Link>
-            <Link href={'/'} style={{textDecoration: 'none', color: 'grey'}}>
+            <Link href={'/adicionar'} style={{textDecoration: 'none', color: 'grey'}}>
                 <PlusIcon className={styles.iconButton} />
             </Link>
         </div>
