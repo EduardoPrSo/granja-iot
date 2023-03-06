@@ -8,6 +8,8 @@ interface Props {
         maxValue: number;
         unity: string;
         placeholder: string;
+        colorMin: string;
+        colorMax: string;
     }
 }
 
@@ -26,8 +28,8 @@ export default function Bars({data}: Props){
         <div className={styles.main}>
             <svg className={styles.svgTwo} xmlns="http://www.w3.org/2000/svg" version="1.1" width="100px" height="100px">
                 <linearGradient id="GradientColor">
-                    <stop offset="0%" stopColor="#e91e63" />
-                    <stop offset="100%" stopColor="#673ab7" />
+                    <stop offset="0%" stopColor={data.colorMax} />
+                    <stop offset="100%" stopColor={data.colorMin} />
                 </linearGradient>
                 <circle className={styles.circleTwo} cx="50" cy="50" r="33" strokeLinecap="round"/>
             </svg>
