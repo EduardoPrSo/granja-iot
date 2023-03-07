@@ -59,13 +59,21 @@
 
 .addInputs{
     border: 1px solid grey;
-    padding: 5px 2px;
+    padding: 3px 2px;;
+    width: 100%;
+    border-radius: 5px;
+    color: grey;
+}
+
+.addSelect{
+    border: 1px solid grey;
+    padding: 15px 2px;
     width: 40%;
     border-radius: 5px;
     color: grey;
 }
 
-.addInputs:focus{
+.addInputs:focus, .addSelect:focus{
     outline: none;
 }
 

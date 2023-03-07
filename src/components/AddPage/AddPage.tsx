@@ -5,7 +5,6 @@ import { PlusIcon, ChevronDownIcon, ChevronUpIcon, TrashIcon } from '@heroicons/
 export default function AddPage(){
     const [addSession, setAddSession] = useState(false);
 
-
     return(
         <div className={styles.mainContainer}>
             <div className={styles.sensorsContainer} style={{height: addSession ? '78%' : '91%'}}>
@@ -22,12 +21,16 @@ export default function AddPage(){
                 </div>
             </div>
             <div className={styles.addItems} style={{visibility: addSession ? 'visible' : 'hidden', transitionDelay: addSession ? '.3s' : '0s'}}>
-                <input type="text" name="" id="" placeholder="Nome" className={styles.addInputs}/>
-                <select className={styles.addInputs}>
-                    <option value="">Temperatura</option>
-                    <option value="">Luminosidade</option>
+                <div style={{display: 'flex', flexDirection: 'column', gap: '2px', width: '40%'}}>
+                    <input type="text" name="" id="" placeholder="Nome" className={styles.addInputs}/>
+                    <input type="text" name="" id="" placeholder="Denominação" className={styles.addInputs}/>
+                </div>
+                <select className={styles.addSelect}>
+                    <option value="0">Selecione</option>
+                    <option value="1">Temperatura</option>
+                    <option value="2">Luminosidade</option>
                 </select>
-                <PlusIcon className={styles.iconButton} onClick={()=>setAddSession(false)}/>
+                <PlusIcon className={styles.iconButton} onClick={()=>{setAddSession(false)}}/>
             </div>
             <div className={styles.addCointainer} onClick={()=>setAddSession(!addSession)}>
                 <h3>Adicionar sensor/atuador</h3>
