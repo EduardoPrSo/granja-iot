@@ -14,4 +14,17 @@
     width: 100%;
     height: auto;
     row-gap: 20px;
+    justify-content: space-around;
+}
+
+.bar{
+    width: 80px;
+}
+
+.bar p{
+    color: rgb(0, 119, 255);
+    font-size: .8rem;
+    text-align: center;
+    margin-top: 2px;
+    
 }
