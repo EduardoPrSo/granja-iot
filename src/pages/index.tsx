@@ -5,7 +5,7 @@ export default function Home() {
 
     return (
         <div id="mainApp">
-            <Layout />
+            <Layout title={"PERFIL"} />
             <Profile/>
         </div>
     )

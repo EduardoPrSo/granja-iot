@@ -1,9 +1,13 @@
 import styles from './Header.module.css'
 
-export default function Header(){
+interface Props {
+    title: string
+}
+
+export default function Header(props: Props){
     return (
         <div className={styles.headerContainer}>
-            <h1>GRANJA IOT</h1>
+            <h1>{props.title}</h1>
         </div>
     )
 }

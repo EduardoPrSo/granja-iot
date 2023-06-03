@@ -4,7 +4,7 @@ import Config from "@/components/Config/Config"
 export default function ConfigPage(){
     return (
         <>
-            <Layout />
+            <Layout title={"CONFIGURAÇÕES"} />
             <Config />
         </>
     )

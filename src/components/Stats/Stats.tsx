@@ -11,18 +11,6 @@ export default function Stats(){
                     <CircularProgressbar className={styles.bar} value={10} minValue={-50} maxValue={100} text={`20 C`} styles={buildStyles({rotation: 0.50})} />
                     <p>SENSOR 1</p>
                 </div>
-                <div className={styles.bar}>
-                    <CircularProgressbar className={styles.bar} value={10} minValue={-50} maxValue={100} text={`20 C`} styles={buildStyles({rotation: 0.50})} />
-                    <p>SENSOR 1</p>
-                </div>
-                <div className={styles.bar}>
-                    <CircularProgressbar className={styles.bar} value={10} minValue={-50} maxValue={100} text={`20 C`} styles={buildStyles({rotation: 0.50})} />
-                    <p>SENSOR 1</p>
-                </div>
-                <div className={styles.bar}>
-                    <CircularProgressbar className={styles.bar} value={10} minValue={-50} maxValue={100} text={`20 C`} styles={buildStyles({rotation: 0.50})} />
-                    <p>SENSOR 1</p>
-                </div>
             </div>
         </div>
     )

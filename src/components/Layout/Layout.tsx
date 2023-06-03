@@ -2,10 +2,14 @@ import styles from './Layout.module.css'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 
-export default function Layout() {
+interface Props {
+    title: string
+}
+
+export default function Layout(props: Props) {
     return (
         <> 
-            <Header />
+            <Header title={props.title} />
             <Footer />
         </>
     )

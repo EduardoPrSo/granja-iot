@@ -4,7 +4,7 @@ import Layout from "@/components/Layout/Layout"
 export default function Add(){
     return(
         <>
-            <Layout />
+            <Layout title={"SENSORES"} />
             <AddPage/>
         </>
     )

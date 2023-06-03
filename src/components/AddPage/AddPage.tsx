@@ -7,7 +7,7 @@ export default function AddPage(){
 
     return(
         <div className={styles.mainContainer}>
-            <div className={styles.sensorsContainer} style={{height: addSession ? '78%' : '91%'}}>
+            <div className={styles.sensorsContainer} style={{height: addSession ? '81%' : '91%'}}>
                 <div className={styles.itemsContainer}>
                     <div>
                         <p style={{color: 'grey', fontSize: '15px'}}>Nome</p>
@@ -23,7 +23,6 @@ export default function AddPage(){
             <div className={styles.addItems} style={{visibility: addSession ? 'visible' : 'hidden', transitionDelay: addSession ? '.3s' : '0s'}}>
                 <div style={{display: 'flex', flexDirection: 'column', gap: '2px', width: '40%'}}>
                     <input type="text" name="" id="" placeholder="Nome" className={styles.addInputs}/>
-                    <input type="text" name="" id="" placeholder="Denominação" className={styles.addInputs}/>
                 </div>
                 <select className={styles.addSelect}>
                     <option value="0">Selecione</option>
@@ -33,7 +32,7 @@ export default function AddPage(){
                 <PlusIcon className={styles.iconButton} onClick={()=>{setAddSession(false)}}/>
             </div>
             <div className={styles.addCointainer} onClick={()=>setAddSession(!addSession)}>
-                <h3>Adicionar sensor/atuador</h3>
+                <h3>Adicionar sensor</h3>
                 {addSession ? <ChevronDownIcon className={styles.iconButton} /> : <ChevronUpIcon className={styles.iconButton} />}
             </div>
         </div>
