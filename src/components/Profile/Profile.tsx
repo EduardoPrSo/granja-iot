@@ -4,10 +4,24 @@ export default function Profile(){
 
     return (
         <div className={styles.mainContainer}>
-            <h3>Nome:</h3>
-            <p>Central</p>
-            <h3>Email:</h3>
-            <p>Email</p>
+            <div className={styles.itemsContainer}>
+                <div>
+                    <h3>Nome:</h3>
+                    <p>Central 1</p>
+                </div>  
+            </div>
+            <div className={styles.itemsContainer}>
+                <div>
+                    <h3>Email:</h3>
+                    <p>granjaiot@hotmail.com</p>
+                </div>  
+            </div>
+            <div className={styles.itemsContainer}>
+                <div>
+                    <h3>Sensores:</h3>
+                    <p>3</p>
+                </div>  
+            </div>
         </div>
     )
 }

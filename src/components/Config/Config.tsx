@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './Config.module.css'
 import * as Switch from '@radix-ui/react-switch';
 import { CheckCircleIcon } from '@heroicons/react/24/outline'
@@ -6,6 +6,30 @@ import { CheckCircleIcon } from '@heroicons/react/24/outline'
 export default function Config() {
 
     const [automatic, setAutomatic] = useState(false);
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3000/api/getValues')
+            .then(res => res.json())
+            .then(data => setData(data))
+    }, [])
+
+    const updateData = (name: string) => {
+        const value = document.getElementById(`data--new--value--${name}`) as HTMLInputElement;
+
+        if (value.value === '') return alert('Insira um valor');
+
+        fetch('http://localhost:3000/api/updateValue', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                value: value.value
+            })
+        })
+    }
 
     return (
         <div className={styles.mainContainer}>
@@ -19,19 +43,23 @@ export default function Config() {
             </div>
             {
                 automatic === false ? 
-                <div className={styles.sensorsContainer}>
-                    <div className={styles.itemsContainer}>
-                        <div>
-                            <p style={{color: 'grey', fontSize: '15px'}}>Nome</p>
-                            <p>Sensor 1</p>
-                        </div>
-                        <div>
-                            <p style={{color: 'grey', fontSize: '15px'}}>Valor</p>
-                            <input type="text" />
-                        </div>
-                        <CheckCircleIcon className={styles.iconButton} />
-                    </div>
-                </div>
+                    data.map((item: any, index) => {
+                        return (
+                            <div className={styles.sensorsContainer} key={index}>
+                                <div className={styles.itemsContainer}>
+                                    <div>
+                                        <p style={{color: 'grey', fontSize: '15px'}}>Nome</p>
+                                        <p>{item.name}</p>
+                                    </div>
+                                    <div>
+                                        <p style={{color: 'grey', fontSize: '15px'}}>Valor</p>
+                                        <input type="text" id={`data--new--value--${item.name}`} />
+                                    </div>
+                                    <CheckCircleIcon className={styles.iconButton} onClick={()=>updateData(item.name)}/>
+                                </div>
+                            </div>
+                        )
+                    })
                 :
                 <></>
             }

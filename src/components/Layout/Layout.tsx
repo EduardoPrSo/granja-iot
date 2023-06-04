@@ -1,4 +1,4 @@
-import styles from './Layout.module.css'
+import styles from './Loyout.module.css'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 
@@ -8,9 +8,9 @@ interface Props {
 
 export default function Layout(props: Props) {
     return (
-        <> 
+        <div> 
             <Header title={props.title} />
             <Footer />
-        </>
+        </div>
     )
 }

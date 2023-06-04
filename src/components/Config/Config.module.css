@@ -1,7 +1,7 @@
 .mainContainer{
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    height: auto;
     padding: 5px;
     background-color: #f5f5f5;
     border-radius: 10px;
@@ -68,6 +68,10 @@
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
     border-radius: 10px;
     margin-top: 5px;
+}
+
+.itemsContainer div{
+    min-width: 40%;
 }
 
 .itemsContainer input{
