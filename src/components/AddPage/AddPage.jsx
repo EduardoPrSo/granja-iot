@@ -14,13 +14,13 @@ export default function AddPage(){
     }
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/getValues')
+        fetch(`/api/getValues`)
             .then(res => res.json())
             .then(data => setData(data))
     }, [])
     
     function updateSensor(name){
-        fetch('http://localhost:3000/api/updateSensor', {
+        fetch(`/api/updateSensor`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

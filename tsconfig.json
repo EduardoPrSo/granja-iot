@@ -18,6 +18,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/startSetup.js", "src/services/centralData.js", "src/services/database.js", "src/components/Stats/Stats.jsx", "src/components/AddPage/AddPage.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/startSetup.js", "src/services/centralData.js", "src/services/database.js", "src/components/Stats/Stats.jsx", "src/components/AddPage/AddPage.jsx", "src/components/Config/Config.jsx"],
   "exclude": ["node_modules"]
 }

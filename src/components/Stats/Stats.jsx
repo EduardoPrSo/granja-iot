@@ -25,7 +25,8 @@ export default function Stats(){
     }
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/getValues')
+        console.log()
+        fetch(`/api/getValues`)
             .then(res => res.json())
             .then(data => setData(data))
     }, [])

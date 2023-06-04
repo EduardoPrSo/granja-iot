@@ -9,17 +9,17 @@ export default function Config() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/getValues')
+        fetch(`/api/getValues`)
             .then(res => res.json())
             .then(data => setData(data))
     }, [])
 
-    const updateData = (name: string) => {
-        const value = document.getElementById(`data--new--value--${name}`) as HTMLInputElement;
+    const updateData = (name) => {
+        const value = document.getElementById(`data--new--value--${name}`);
 
         if (value.value === '') return alert('Insira um valor');
 
-        fetch('http://localhost:3000/api/updateValue', {
+        fetch(`/api/updateValue`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ export default function Config() {
             </div>
             {
                 automatic === false ? 
-                    data.map((item: any, index) => {
+                    data.map((item, index) => {
                         return (
                             <div className={styles.sensorsContainer} key={index}>
                                 <div className={styles.itemsContainer}>
