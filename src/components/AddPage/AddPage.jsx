@@ -19,7 +19,7 @@ export default function AddPage(){
             .then(data => setData(data))
     }, [])
     
-    function updateSensor(name: string){
+    function updateSensor(name){
         fetch('http://localhost:3000/api/updateSensor', {
             method: 'POST',
             headers: {
@@ -33,7 +33,7 @@ export default function AddPage(){
         <div className={styles.mainContainer}>
             <div className={styles.sensorsContainer} style={{height: addSession ? '81%' : '91%'}}>
                 {
-                    data.map((item: any, index) => {
+                    data.map((item, index) => {
                         if (item.type == 0) return;
                         return (
                             <div className={styles.itemsContainer} key={index}>

@@ -34,7 +34,7 @@ export default function Stats(){
         <div className={styles.mainContainer}>
             <div className={styles.barsContainer}>
                 {
-                    data.map((item: any, index) => {
+                    data.map((item, index) => {
                         return (
                             <div className={styles.bar} key={index}>
                                 <CircularProgressbar className={styles.bar} value={item.current_value} minValue={types[item.type].min} maxValue={types[item.type].max} text={`${item.current_value} ${types[item.type].unit}`} styles={buildStyles({rotation: 0.50})} />
