@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 63vh;
+    height: 80vh;
     padding: 5px;
     background-color: #f5f5f5;
     border-radius: 10px;
@@ -55,7 +55,7 @@
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
     border-radius: 10px;
     position: absolute;
-    top: 82%;
+    top: 83%;
 }
 
 .addInputs{
