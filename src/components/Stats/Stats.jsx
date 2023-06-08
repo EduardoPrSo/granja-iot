@@ -25,11 +25,15 @@ export default function Stats(){
     }
 
     useEffect(() => {
-        console.log()
-        fetch(`/api/getValues`)
+        const fetchData = () => {
+          fetch(`/api/getValues`)
             .then(res => res.json())
             .then(data => setData(data))
-    }, [])
+        };
+        fetchData();
+        const interval = setInterval(fetchData, 30000);
+        return () => clearInterval(interval);
+    }, []);
 
     return (
         <div className={styles.mainContainer}>
