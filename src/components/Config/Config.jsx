@@ -29,6 +29,7 @@ export default function Config() {
                 value: value.value
             })
         })
+        window.location.reload();
     }
 
     return (
@@ -53,7 +54,7 @@ export default function Config() {
                                     </div>
                                     <div>
                                         <p style={{color: 'grey', fontSize: '15px'}}>Valor</p>
-                                        <input type="text" id={`data--new--value--${item.name}`} />
+                                        <input type="text" id={`data--new--value--${item.name}`} placeholder={item.value} onChange={(e)=>e.target.value = e.target.value.replace(/[^0-9.]/g, '')}/>
                                     </div>
                                     <CheckCircleIcon className={styles.iconButton} onClick={()=>updateData(item.name)}/>
                                 </div>

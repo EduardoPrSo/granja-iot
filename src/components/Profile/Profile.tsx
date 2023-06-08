@@ -19,7 +19,7 @@ export default function Profile(){
             <div className={styles.itemsContainer}>
                 <div>
                     <h3>Sensores:</h3>
-                    <p>3</p>
+                    <p>6</p>
                 </div>  
             </div>
         </div>

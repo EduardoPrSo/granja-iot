@@ -8,12 +8,13 @@ export default async function handler(req, res) {
 
     for (let i = 0; i < data[0].length; i++) {
         const name = data[0][i].metric_name
+        const value = data[0][i].value
         const current_value = data[0][i].current_value
         const type = data[0][i].metric_id
 
         if (data[0][i].metric_status == 1) {
             if (type != 3){
-                currentData.push({name: name, current_value: current_value, type: type})
+                currentData.push({name: name, value: value, current_value: current_value, type: type})
             }
         }
     }
