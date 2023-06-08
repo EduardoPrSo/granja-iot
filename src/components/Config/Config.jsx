@@ -42,6 +42,13 @@ export default function Config() {
                 automatic: !automatic
             })
         })
+            .then(res => res.json())
+            .then(data => {
+                if(data.message === "nok") {
+                    return alert('Ainda não há dados suficientes para o modo automático');
+                }
+                setAutomatic(!automatic);
+            })
     }
 
     return (
@@ -50,7 +57,7 @@ export default function Config() {
                 <label className={styles.Label} htmlFor="airplane-mode" style={{ paddingRight: 15 }}>
                     Modo automático
                 </label>
-                <Switch.Root className={styles.SwitchRoot} id="airplane-mode" checked={automatic} onClick={()=>{setAutomatic(!automatic);changeAutomatic()}}>
+                <Switch.Root className={styles.SwitchRoot} id="airplane-mode" checked={automatic} onClick={()=>{changeAutomatic()}}>
                     <Switch.Thumb className={styles.SwitchThumb} />
                 </Switch.Root>
             </div>
