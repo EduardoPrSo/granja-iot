@@ -11,7 +11,7 @@ export default function Config() {
     useEffect(() => {
         fetch(`/api/getConfigValues`)
             .then(res => res.json())
-            .then(data => setData(data))
+            .then(data => {setData(data.data);setAutomatic(data.automatic)})
     }, [])
 
     const updateData = (name) => {
@@ -32,13 +32,25 @@ export default function Config() {
         window.location.reload();
     }
 
+    const changeAutomatic = () => {
+        fetch(`/api/changeAutomatic`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                automatic: !automatic
+            })
+        })
+    }
+
     return (
         <div className={styles.mainContainer}>
             <div style={{ display: 'flex', alignItems: 'center' }} className={styles.automaticModeContainer}>
                 <label className={styles.Label} htmlFor="airplane-mode" style={{ paddingRight: 15 }}>
                     Modo automático
                 </label>
-                <Switch.Root className={styles.SwitchRoot} id="airplane-mode" checked={automatic} onClick={()=>setAutomatic(!automatic)}>
+                <Switch.Root className={styles.SwitchRoot} id="airplane-mode" checked={automatic} onClick={()=>{setAutomatic(!automatic);changeAutomatic()}}>
                     <Switch.Thumb className={styles.SwitchThumb} />
                 </Switch.Root>
             </div>

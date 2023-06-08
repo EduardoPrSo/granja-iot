@@ -6,6 +6,7 @@ export default function AddPage(){
 
     const [addSession, setAddSession] = useState(false);
     const [data, setData] = useState([])
+    const [disabledData, setDisabledData] = useState([])
 
     const types = {
         1: 'Temperatura',
@@ -17,16 +18,22 @@ export default function AddPage(){
         fetch(`/api/getValues`)
             .then(res => res.json())
             .then(data => setData(data))
+
+        fetch(`/api/getDisabledValues`)
+            .then(res => res.json())
+            .then(data => setDisabledData(data))
     }, [])
-    
-    function updateSensor(name){
-        fetch(`/api/updateSensor`, {
+
+    function changeItem(status, name = false){
+        if (name === false) name = document.getElementById('select--sensor').value;
+        fetch(`/api/updateSensors`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({name})
+            body: JSON.stringify({name: name, status: status})
         })
+        window.location.reload();
     }
 
     return(
@@ -45,22 +52,22 @@ export default function AddPage(){
                                     <p style={{color: 'grey', fontSize: '15px'}}>Tipo</p>
                                     <p>{types[item.type]}</p>
                                 </div>
-                                <TrashIcon className={styles.iconButton} onClick={()=>updateSensor(item.name)}/>
+                                <TrashIcon className={styles.iconButton} onClick={()=>changeItem(0, item.name)}/>
                             </div>
                         )
                     })
                 }
             </div>
             <div className={styles.addItems} style={{visibility: addSession ? 'visible' : 'hidden', transitionDelay: addSession ? '.3s' : '0s'}}>
-                <div style={{display: 'flex', flexDirection: 'column', gap: '2px', width: '40%'}}>
-                    <input type="text" name="" id="" placeholder="Nome" className={styles.addInputs}/>
-                </div>
-                <select className={styles.addSelect}>
-                    <option value="1">Selecione</option>
-                    <option value="2">Temperatura</option>
-                    <option value="3">Luminosidade</option>
+                <select type="text" className={styles.addSelect} id='select--sensor'>
+                    <option value="0">Selecione o sensor</option>
+                    {disabledData.map((item, index) => {
+                        return(
+                            <option key={index} value={item.name}>{item.name}</option>
+                        )
+                    })}
                 </select>
-                <PlusIcon className={styles.iconButton} onClick={()=>{setAddSession(false)}}/>
+                <PlusIcon className={styles.iconButton} onClick={()=>{setAddSession(false);changeItem(1)}}/>
             </div>
             <div className={styles.addCointainer} onClick={()=>setAddSession(!addSession)}>
                 <h3>Adicionar sensor</h3>
