@@ -9,7 +9,7 @@ export default function Config() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch(`/api/getValues`)
+        fetch(`/api/getConfigValues`)
             .then(res => res.json())
             .then(data => setData(data))
     }, [])

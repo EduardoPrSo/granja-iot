@@ -76,7 +76,7 @@
 
 .itemsContainer input{
     width: 60%;
-    border: none;
+    border: 1px solid rgba(128, 128, 128, 0.418);
     border-radius: 5px;
     padding: 3px;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
