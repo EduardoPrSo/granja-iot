@@ -93,4 +93,9 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    transition: color 0.2s;
+}
+
+.iconButton:hover{
+    color: yellowgreen;
 }
