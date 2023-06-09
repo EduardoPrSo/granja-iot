@@ -2,23 +2,14 @@ import { useEffect, useState } from 'react'
 import styles from './Config.module.css'
 import * as Switch from '@radix-ui/react-switch';
 import { CheckCircleIcon } from '@heroicons/react/24/outline'
-import { useSession } from 'next-auth/react';
 
 export default function Config() {
-    const { data: session } = useSession()
+
     const [automatic, setAutomatic] = useState(false);
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch(`/api/getConfigValues`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                id: 1
-            })
-        })
+        fetch(`/api/getConfigValues`)
             .then(res => res.json())
             .then(data => {setData(data.data);setAutomatic(data.automatic)})
     }, [])
@@ -35,8 +26,7 @@ export default function Config() {
             },
             body: JSON.stringify({
                 name: name,
-                value: value.value,
-                id: 1
+                value: value.value
             })
         })
         window.location.reload();
@@ -49,8 +39,7 @@ export default function Config() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                automatic: !automatic,
-                id: 1
+                automatic: !automatic
             })
         })
             .then(res => res.json())

@@ -21,18 +21,3 @@
     border-radius: 10px;
     margin-bottom: 5px;
 }
-
-.mainContainer button{
-    width: 100%;
-    padding: 2% 0;
-    border-radius: 10px;
-    border: 1px solid rgb(0, 162, 255);
-    color: rgb(0, 162, 255);
-    text-align: center;
-}
-
-.mainContainer button:hover{
-    background-color: rgb(0, 162, 255);
-    color: white;
-    cursor: pointer;
-}

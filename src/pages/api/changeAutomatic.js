@@ -2,7 +2,7 @@ import { database } from '@/services/database'
 
 export default async function handler(req, res) {
     const conn = await database()
-    const { automatic, id } = req.body
+    const { automatic } = req.body
 
     const sensors = [
         { name: "temperature_1", index: 1, identificator: "Temperatura 1" },
@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     const automaticStatus = automatic ? 1 : 0
   
     for (const item of sensors) {
-        const data = await conn.query(`SELECT value FROM User_metrics_data WHERE user_id = ${id} AND setup_id = ${item.index} LIMIT 10`);
+        const data = await conn.query(`SELECT value FROM User_metrics_data WHERE user_id = 1 AND setup_id = ${item.index} LIMIT 10`);
 
         if (data[0].length == 0) {
             return res.status(200).json({ message: "nok" });
