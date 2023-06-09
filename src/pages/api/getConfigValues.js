@@ -2,10 +2,11 @@ import { database } from '@/services/database'
 
 export default async function handler(req, res) {
     const conn = await database()
+    const { id } = req.body;
     const currentData = {data: []}
 
-    const data = await conn.query('SELECT * FROM `User_metrics_setup` WHERE `user_id` = 1')
-    const automaticData = await conn.query('SELECT automatic FROM `User` WHERE `id` = 1')
+    const data = await conn.query(`SELECT * FROM User_metrics_setup WHERE user_id = ${id}`)
+    const automaticData = await conn.query(`SELECT automatic FROM User WHERE id = ${id}`)
 
     const automatic = automaticData[0][0].automatic == 1 ? true : false
     currentData.automatic = automatic

@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import styles from './Stats.module.css'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { useSession } from 'next-auth/react';
 
 export default function Stats(){
     const [data, setData] = useState([])
-
+    const { data: session } = useSession()
+    
     const types = {
         1: {
             min: -20,
@@ -26,7 +28,15 @@ export default function Stats(){
 
     useEffect(() => {
         const fetchData = () => {
-          fetch(`/api/getValues`)
+          fetch(`/api/getValues`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: 1
+            })
+          })
             .then(res => res.json())
             .then(data => setData(data))
         };

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import styles from './AddPage.module.css'
 import { PlusIcon, ChevronDownIcon, ChevronUpIcon, TrashIcon } from '@heroicons/react/24/outline'
+import { useSession } from 'next-auth/react';
 
 export default function AddPage(){
-
+    const { data: session } = useSession()
     const [addSession, setAddSession] = useState(false);
     const [data, setData] = useState([])
     const [disabledData, setDisabledData] = useState([])
@@ -15,11 +16,27 @@ export default function AddPage(){
     }
 
     useEffect(() => {
-        fetch(`/api/getValues`)
+        fetch(`/api/getValues`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: 1
+            })
+        })
             .then(res => res.json())
             .then(data => setData(data))
 
-        fetch(`/api/getDisabledValues`)
+        fetch(`/api/getDisabledValues`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: 1
+            })
+        })
             .then(res => res.json())
             .then(data => setDisabledData(data))
     }, [])
@@ -31,7 +48,7 @@ export default function AddPage(){
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({name: name, status: status})
+            body: JSON.stringify({name: name, status: status, id: 1})
         })
         window.location.reload();
     }
