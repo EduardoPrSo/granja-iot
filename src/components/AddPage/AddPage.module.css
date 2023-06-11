@@ -55,12 +55,13 @@
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
     border-radius: 10px 10px 0 0;
     position: absolute;
-    top: 83%;
+    top: 81%;
 }
 
 .addSelect{
     display: flex;
     border: 1px solid grey;
+    background-color: white;
     padding: 15px 2px;
     width: 80%;
     height: 30px;
@@ -84,7 +85,7 @@
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
     border-radius: 10px;
     position: absolute;
-    top: 92%;
+    top: 90%;
 }
 
 .iconButton{

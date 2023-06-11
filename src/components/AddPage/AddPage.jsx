@@ -25,7 +25,10 @@ export default function AddPage(){
     }, [])
 
     function changeItem(status, name = false){
-        if (name === false) name = document.getElementById('select--sensor').value;
+        if (name === false) name = document.getElementById('select--sensor').value
+
+        console.log(status, name)
+
         fetch(`/api/updateSensors`, {
             method: 'POST',
             headers: {
@@ -38,7 +41,7 @@ export default function AddPage(){
 
     return(
         <div className={styles.mainContainer}>
-            <div className={styles.sensorsContainer} style={{height: addSession ? '82%' : '91%'}}>
+            <div className={styles.sensorsContainer} style={{height: addSession ? '80%' : '89%'}}>
                 {
                     data.map((item, index) => {
                         if (item.type == 0) return;

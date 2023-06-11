@@ -7,9 +7,6 @@ interface Props {
 }
 
 export default function Footer(props: Props){
-
-    console.log(props.tab)
-
     return (
         <div className={styles.headerContainer}>
             <Link href={'/'} style={{textDecoration: 'none', color: props.tab === "PERFIL" ? "rgb(0, 162, 255)" : 'grey'}}>
