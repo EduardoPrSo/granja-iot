@@ -14,7 +14,7 @@ export default function Stats(){
         },
         2: {
             min: 1,
-            max: 3000,
+            max: 500,
             unit: 'lux' 
         },
         3: {
