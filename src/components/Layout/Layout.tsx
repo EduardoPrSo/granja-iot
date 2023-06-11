@@ -10,7 +10,7 @@ export default function Layout(props: Props) {
     return (
         <div> 
             <Header title={props.title} />
-            <Footer />
+            <Footer tab={props.title} />
         </div>
     )
 }
