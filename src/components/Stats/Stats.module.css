@@ -19,6 +19,7 @@
 
 .bar{
     width: 80px;
+    font-size: 0.5rem;
 }
 
 .bar p{
@@ -27,5 +28,4 @@
     font-size: .8rem;
     text-align: center;
     margin-top: 2px;
-    
 }
