@@ -41,7 +41,7 @@ export default function AddPage(){
 
     return(
         <div className={styles.mainContainer}>
-            <div className={styles.sensorsContainer} style={{height: addSession ? '80%' : '89%'}}>
+            <div className={styles.sensorsContainer} style={{height: addSession ? '81.5%' : '89.5%'}}>
                 {
                     data.map((item, index) => {
                         if (item.type == 0) return;

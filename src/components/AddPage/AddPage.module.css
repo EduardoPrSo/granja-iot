@@ -51,11 +51,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    padding-bottom: 18px;
     background-color: white;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
     border-radius: 10px 10px 0 0;
     position: absolute;
-    top: 81%;
+    top: 82.5%;
 }
 
 .addSelect{
@@ -85,7 +86,7 @@
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
     border-radius: 10px;
     position: absolute;
-    top: 90%;
+    top: 90.5%;
 }
 
 .iconButton{
