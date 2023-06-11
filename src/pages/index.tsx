@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout/Layout"
-import Profile from "@/components/Profile/Profile"
+import Profile from "@/components/Profile/Profile.jsx"
 
 export default function Home() {
 
