@@ -2,11 +2,7 @@ import Link from 'next/link'
 import styles from './Footer.module.css'
 import { UserIcon, ChartBarIcon, Cog8ToothIcon, PlusIcon } from '@heroicons/react/24/outline'
 
-interface Props {
-    tab: string
-}
-
-export default function Footer(props: Props){
+export default function Footer(props){
     return (
         <div className={styles.headerContainer}>
             <Link href={'/'} style={{textDecoration: 'none', color: props.tab === "PERFIL" ? "rgb(0, 162, 255)" : 'grey'}}>

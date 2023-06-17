@@ -1,12 +1,7 @@
-import styles from './Loyout.module.css'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
 
-interface Props {
-    title: string
-}
-
-export default function Layout(props: Props) {
+export default function Layout(props) {
     return (
         <div> 
             <Header title={props.title} />

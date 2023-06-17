@@ -1,4 +1,4 @@
-import { database } from '@/services/database'
+import { database } from '../../services/database.js'
 
 export default async function handler(req, res) {
     const conn = await database()
